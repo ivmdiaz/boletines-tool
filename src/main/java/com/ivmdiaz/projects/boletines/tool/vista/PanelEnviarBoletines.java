@@ -42,7 +42,6 @@ public class PanelEnviarBoletines extends javax.swing.JPanel {
     private List<Boletin> boletinesParaEnviar = new ArrayList<>();
     private List<Boletin> boletinesPendientesEnviar = new ArrayList<>();
 
-    ;
 
     /**
      * Creates new form Directorio
@@ -122,20 +121,18 @@ public class PanelEnviarBoletines extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(title)
-                                    .addComponent(btnCargarCarpeta)
-                                    .addComponent(jLabel1)
-                                    .addComponent(btnEnviarCorreos))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(229, 229, 229)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(title)
+                                .addComponent(btnCargarCarpeta)
+                                .addComponent(jLabel1)
+                                .addComponent(btnEnviarCorreos))
+                            .addGap(0, 0, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

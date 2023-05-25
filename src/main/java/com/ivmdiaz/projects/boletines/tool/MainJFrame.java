@@ -120,7 +120,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnEnviarBoletines, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,6 +139,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarBoletinesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarBoletinesActionPerformed
@@ -172,7 +173,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void actualizarContenido(final JPanel panel) {
 
-        panel.setSize(1000, 600);
+        panel.setSize(1000, 700);
 
         this.contenido.removeAll();
         this.contenido.add(panel);
@@ -213,7 +214,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 MainJFrame frame = new MainJFrame();
                 frame.getContentPane().setBackground(new Color(56, 159, 214));
                 //frame contains nothing, so set size
-                frame.setSize(1200, 600);
+                frame.setSize(1200, 700);
                 frame.setVisible(true);
                 
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

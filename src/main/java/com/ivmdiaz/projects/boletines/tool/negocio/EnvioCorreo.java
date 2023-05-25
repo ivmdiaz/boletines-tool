@@ -23,41 +23,6 @@ import org.apache.commons.collections4.CollectionUtils;
  */
 public class EnvioCorreo {
 
-    //https://myaccount.google.com/lesssecureapps
-    public static void main(String[] args) {
-    }
-
-    public void sendEmail(final String username, final String password) throws MessagingException {
-
-        Properties prop = new Properties();
-        prop.put("mail.smtp.host", "smtp.gmail.com");
-        prop.put("mail.smtp.port", "587");
-        prop.put("mail.smtp.auth", "true");
-        prop.put("mail.smtp.starttls.enable", "true"); //TLS
-
-        Session session = Session.getInstance(prop,
-                new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-        });
-
-        Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(username));
-        message.setRecipients(
-                Message.RecipientType.TO,
-                InternetAddress.parse("mauriciodiaz1006@gmail.com, idiaz@conexia.com")
-        );
-        message.setSubject("Testing Gmail TLS");
-        message.setText("Dear Mail Crawler,"
-                + "\n\n Please do not spam my email!");
-
-        Transport.send(message);
-
-        System.out.println("Done");
-
-    }
-
     public void sendEmail(final ConfiguracionCorreo configuracion, final PlantillaCorreo plantilla) throws MessagingException {
 
         Properties prop = new Properties();
@@ -102,14 +67,19 @@ public class EnvioCorreo {
 
 
         if (plantilla.getAdjunto() != null && plantilla.getAdjunto().exists()) {
-            final MimeBodyPart messageBodyPart = new MimeBodyPart();
-            final Multipart multipart = new MimeMultipart();
-            final DataSource source = new FileDataSource(plantilla.getAdjunto());
             
+            final MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+            final DataSource source = new FileDataSource(plantilla.getAdjunto());
+            attachmentBodyPart.setDataHandler(new DataHandler(source));
+            attachmentBodyPart.setFileName(plantilla.getAdjunto().getName());
+            
+            final BodyPart messageBodyPart = new MimeBodyPart(); 
             messageBodyPart.setText(plantilla.getContenido());
-            messageBodyPart.setDataHandler(new DataHandler(source));
-            messageBodyPart.setFileName(plantilla.getAdjunto().getName());
+
+                        
+            final Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
+            multipart.addBodyPart(attachmentBodyPart);
 
             message.setContent(multipart);
         }
